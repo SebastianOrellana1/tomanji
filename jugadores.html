@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Tomanji</title>
+	<!--Favicon-->
+	<link rel="icon" href="img/logo.png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!--CSS-->
+	<link rel="stylesheet" type="text/css" href="css/estilos2.css">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+</head>
+<body>
+	<div class="container-fluid degradado2 text-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="row p-2">
+						<div class="col-2">
+							<a href="index.html"><i class="fas fa-arrow-left fa-2x"></i></a>
+						</div>
+						<div class="col-10">
+							<h3>Jugadores</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid degradado">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 d-flex justify-content-center pt-3">
+					<section id="tabla">
+						
+					</section>
+				</div>
+				<div class="col-12 d-flex justify-content-center pt-5 pb-3">
+					<a href="jugadores.html" class="btn btn-primary btn-lg active" data-toggle="modal" data-target="#exampleModal" role="button" aria-pressed="true" style="width: 230px">
+						<i class="fas fa-plus-circle fa-1x pr-1"></i>   Agregar jugadores
+					</a>
+
+					<!-- Modal -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					 	<div class="modal-dialog" role="document">
+							<div class="modal-content">
+						      	<div class="modal-header">
+						        	<h5 class="modal-title" id="exampleModalLabel">Ingrese un nombre</h5>
+						        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          		<span aria-hidden="true">&times;</span>
+						        	</button>
+						        </div>
+							    <div class="modal-body">
+							    	<form>					
+							    		<input id="nombre" type="text" class="form-control">
+							    		<br>
+							    		<button type="reset" class="btn btn-secondary">Limpiar</button>
+							        </form>
+
+							    </div>
+							    <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+							        <button type="button" class="btn btn-success" onclick="capturar();" data-dismiss="modal">Aceptar</button>
+							    </div>
+							</div>
+					 	</div>
+					</div>
+
+				</div>
+				<div class="col-12 d-flex justify-content-center pb-3">
+					<a href="comenzar.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="width: 230px">
+						<img src="img/logo.png" width="30px" height="25px" align="left">Comenzar
+					</a>		
+				</div>
+				<div class="col-12 d-flex justify-content-center text-white" style="height: 250px">
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script>
+		$('#myModal').on('shown.bs.modal', function () {
+		    $('#myInput').trigger('focus')
+		})
+
+		function capturar(){
+			function Jugador(nombre){
+				this.nombre=nombre;
+			}
+
+			var nombreCap=document.getElementById("nombre").value;
+			
+			nuevoJugador = new Jugador(nombreCap);
+			agregar();
+		}
+		var lista=[7];
+		function agregar(){
+			lista.push(nuevoJugador);
+			console.log(lista);
+			document.getElementById("tabla").innerHTML +='<h6 class="p-1 text-white" align="center">'+nuevoJugador.nombre+'</h6><hr>';
+		}
+
+
+
+
+	</script>
+</body>
+</html>
